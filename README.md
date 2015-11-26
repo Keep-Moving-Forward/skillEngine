@@ -22,7 +22,6 @@ Copyright and license
 ---------------------
 The license is available within the repository in the [LICENSE][license] file.
 
-[documentation]: http://itsyourskills.github.io/Skill-Engine
-[documentation-folder]: https://github.com/itsyourskills/Skill-Engine/tree/master/docs
+[documentation]: http://itsyourskills.github.io/skillEngine
 [license]: LICENSE.md
 
