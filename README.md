@@ -1,5 +1,5 @@
-Skill Engine (Grid View)
-========================
+Skill Engine
+============
 
 Skill Engine is a jQuery-based plugin to furnish the categorized Skills from Its Your Skills
 
@@ -22,7 +22,7 @@ Copyright and license
 ---------------------
 The license is available within the repository in the [LICENSE][license] file.
 
-[documentation]: http://itsyourskills.github.io/Skill-Engine-Grid
-[documentation-folder]: https://github.com/itsyourskills/Skill-Engine-Grid/tree/master/docs
+[documentation]: http://itsyourskills.github.io/Skill-Engine
+[documentation-folder]: https://github.com/itsyourskills/Skill-Engine/tree/master/docs
 [license]: LICENSE.md
 
