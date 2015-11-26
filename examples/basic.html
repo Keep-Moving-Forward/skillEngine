@@ -1,0 +1,33 @@
+---
+layout: example
+title: Examples - Skill Engine
+slug: eg-basic
+---
+
+<section>
+
+  <h1 id="basics" class="page-header">The basics</h1>
+  
+  <pre class="code" data-fill-from=".js-code-basic"></pre>
+
+<script type="text/x-example-code" class="js-code-basic">
+$(document).ready(function() {
+  $("#skillEngine-container").skillEngine({
+      
+      source:"Skill API's URI",
+  });
+});
+</script>
+
+<h2>Demo</h2>
+<div id="skillEngine-container"></div>
+
+<script type="text/javascript" >
+$(document).ready(function() {
+  $("#skillEngine-container").skillEngine({
+      
+      source:"https://www.itsyourskills.com/skilljson",
+  });
+});
+</script>
+</section>
