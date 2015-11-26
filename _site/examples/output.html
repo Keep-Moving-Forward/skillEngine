@@ -1,0 +1,182 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>
+  Examples - Skill Engine
+</title>
+
+<script type="text/javascript" src="../vendor/js/jquery.min.js"></script>
+<script type="text/javascript" src="../dist/js/skillEngine.js"></script>
+<script type="text/javascript" src="../vendor/js/prettify.min.js"></script>
+
+<link href="../vendor/css/bootstrap.min.css" type="text/css" rel="stylesheet" />
+<link href="../vendor/css/font-awesome.min.css" type="text/css" rel="stylesheet" />
+<link href="../vendor/css/prettify.css" type="text/css" rel="stylesheet" />
+<link href="../dist/css/skillEngine.min.css" type="text/css" rel="stylesheet" />
+
+<style type="text/css">
+  body { font-size: 16px; }
+  footer { background-color: #eee; margin-top: 1em; padding: 1em; text-align: center; }
+  .navbar-inverse .navbar-brand { color: #fff; }
+</style>
+
+
+        <style type="text/css">
+          .navbar, .jumbotron { margin-bottom: 0; }
+          .jumbotron-side { padding-top: 2em; }
+          .notice-previous { background-color: #d9edf7; border-top: 1px solid #bce8f1; border-bottom: 1px solid #bce8f1; color: #31708f; padding: 0.5em; margin-bottom: 1em; text-align: center; }
+          .notice-previous a { font-weight: bold; }
+        </style>
+    </head>
+    <body class="iys-spe">
+        <header class="navbar navbar-default navbar-static-top" id="top" role="banner">
+  <div class="container">
+    <div class="navbar-header">
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target=".select2-navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+        <a href="../" class="navbar-brand"><img src="https://www.itsyourskills.com/images/logo.png" height="35px"/></a>
+    </div>
+
+    <nav class="collapse navbar-collapse select2-navbar-collapse" role="navigation">
+      <ul class="nav navbar-nav">
+        <li>
+          <a href="../">Home</a>
+        </li>
+<!--        <li>
+          <a href="../examples.html">Examples</a>
+        </li>
+        <li>
+          <a href="../options.html">Options</a>
+        </li>
+-->
+       <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            Examples
+            <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu">
+            <li>
+              <a href="initialize.html">
+               Initialize Skill Engine
+              </a>
+            </li>
+               <li>
+              <a href="input.html">
+               Input for Skill Engine
+              </a>
+            </li>
+            <li class="active">
+              <a href="output.html">
+               Output from Skill Engine
+              </a>
+            </li>
+          </ul>
+        </li>
+        
+      </ul>
+
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+          <a href="https://github.com/itsyourskills/skillEngine">
+            <i class="fa fa-github"></i>
+            GitHub
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+        <div class="container">
+        <section>
+
+  <h1 class="page-header">Output from Skill Engine</h1>
+  
+    <h2>HTML</h2>
+    <pre class="code prettyprint linenums">&lt;div id=&quot;skillEngine-contain&quot; &gt;&lt;/div&gt;</pre>
+  
+    <h2>Javascript</h2>
+    <pre class="code" data-fill-from=".js-code-basic"></pre>
+    <script type="text/x-example-code" class="js-code-basic">
+    $(document).ready(function() {
+       var skillEngineObj =  $("#skillEngine-contain").skillEngine({
+            source:"Skill API's URI", // It is mandatory
+            data: "JSON String generated from Skill Engine"
+        });
+        
+        console.log(skillEngineObj.output()); //Skill Engine output() will generate and return JSON data
+    });
+    </script>
+
+    <h2>Demo</h2>
+    <div id="skillEngine-container"></div>
+    <br/>
+    <button id="skillEngine-Btn" class="btn btn-success">Generate Output</button>
+    <pre id="outputJson"></pre>
+
+    <script type="text/javascript" >
+        var data = {"functionals":[{"id":"7957390","parent_id":"7957386","value":"Compiler Development","is_child":"0","scale_type":"2","display_order":"0","is_madatory":"0","is_searchable":"0","desc":null,"synonyms":null,"tree_ids":",7957390,7957386,7957364,7957363,7852477,7819050,","rating":4,"is_mandatory":"0","comment":""},{"id":"7957425","parent_id":"7957386","value":"OS Internals","is_child":"0","scale_type":"2","display_order":"0","is_madatory":"0","is_searchable":"0","desc":null,"synonyms":null,"tree_ids":",7957425,7957386,7957364,7957363,7852477,7819050,","rating":4,"is_mandatory":"0","comment":""},{"id":"7957391","parent_id":"7957386","value":"Database Internals","is_child":"0","scale_type":"2","display_order":"0","is_madatory":"0","is_searchable":"0","desc":null,"synonyms":null,"tree_ids":",7957391,7957386,7957364,7957363,7852477,7819050,","rating":4,"is_mandatory":"0","comment":""},{"id":"7957392","parent_id":"7957386","value":"Device Driver Development","is_child":"0","scale_type":"2","display_order":"0","is_madatory":"0","is_searchable":"0","desc":null,"synonyms":null,"tree_ids":",7957392,7957386,7957364,7957363,7852477,7819050,","rating":3,"is_mandatory":"0","comment":""},{"id":"7957393","parent_id":"7957386","value":"Embedded Software","is_child":"0","scale_type":"2","display_order":"0","is_madatory":"0","is_searchable":"0","desc":null,"synonyms":null,"tree_ids":",7957393,7957386,7957364,7957363,7852477,7819050,","rating":3,"is_mandatory":"0","comment":""},{"id":"7957394","parent_id":"7957386","value":"Kernel Programming","is_child":"4","scale_type":"2","display_order":"0","is_madatory":"0","is_searchable":"0","desc":null,"synonyms":null,"tree_ids":",7957394,7957386,7957364,7957363,7852477,7819050,","is_mandatory":"0","comment":""},{"id":"7957397","parent_id":"7957394","value":"Interrupt Management","is_child":"0","scale_type":"2","display_order":"0","is_madatory":"0","is_searchable":"0","desc":null,"synonyms":null,"tree_ids":",7957397,7957394,7957386,7957364,7957363,7852477,7819050,","rating":3,"is_mandatory":"0","comment":""},{"id":"7957396","parent_id":"7957394","value":"Kernel Debugging","is_child":"0","scale_type":"2","display_order":"0","is_madatory":"0","is_searchable":"0","desc":null,"synonyms":null,"tree_ids":",7957396,7957394,7957386,7957364,7957363,7852477,7819050,","rating":4,"is_mandatory":"0","comment":""},{"id":"7957395","parent_id":"7957394","value":"Memory Management","is_child":"0","scale_type":"2","display_order":"0","is_madatory":"0","is_searchable":"0","desc":null,"synonyms":null,"tree_ids":",7957395,7957394,7957386,7957364,7957363,7852477,7819050,","rating":5,"is_mandatory":"0","comment":""},{"id":"7957398","parent_id":"7957394","value":"Driver-Kernel Communication","is_child":"0","scale_type":"2","display_order":"0","is_madatory":"0","is_searchable":"0","desc":null,"synonyms":null,"tree_ids":",7957398,7957394,7957386,7957364,7957363,7852477,7819050,","rating":2,"is_mandatory":"0","comment":""},{"id":"7957399","parent_id":"7957394","value":"Driver-Device Communication","is_child":"0","scale_type":"2","display_order":"0","is_madatory":"0","is_searchable":"0","desc":null,"synonyms":null,"tree_ids":",7957399,7957394,7957386,7957364,7957363,7852477,7819050,","rating":1,"is_mandatory":"0","comment":""},{"id":"7957400","parent_id":"7957394","value":"Configuring, Compiling and Booting the Kernel","is_child":"0","scale_type":"2","display_order":"0","is_madatory":"0","is_searchable":"0","desc":null,"synonyms":null,"tree_ids":",7957400,7957394,7957386,7957364,7957363,7852477,7819050,","is_mandatory":"0","comment":""},{"id":"7957401","parent_id":"7957394","value":"Character Device Drivers","is_child":"0","scale_type":"2","display_order":"0","is_madatory":"0","is_searchable":"0","desc":null,"synonyms":null,"tree_ids":",7957401,7957394,7957386,7957364,7957363,7852477,7819050,","is_mandatory":"0","comment":""},{"id":"7957402","parent_id":"7957394","value":"Accessing Hardware","is_child":"0","scale_type":"2","display_order":"0","is_madatory":"0","is_searchable":"0","desc":null,"synonyms":null,"tree_ids":",7957402,7957394,7957386,7957364,7957363,7852477,7819050,","is_mandatory":"0","comment":""},{"id":"7957868","parent_id":"7957364","value":"Quant Development","is_child":"0","scale_type":"2","display_order":"5","is_madatory":"0","is_searchable":"0","desc":"","synonyms":"","tree_ids":",7957868,7957364,7957363,7852477,7819050,","is_mandatory":"0","comment":""},{"id":"7957869","parent_id":"7957364","value":"Tools Development","is_child":"0","scale_type":"2","display_order":"6","is_madatory":"0","is_searchable":"0","desc":"","synonyms":"","tree_ids":",7957869,7957364,7957363,7852477,7819050,","is_mandatory":"0","comment":""},{"id":"7957387","parent_id":"7957364","value":"Programming for Automation","is_child":"0","scale_type":"2","display_order":"7","is_madatory":"0","is_searchable":"0","desc":"","synonyms":"","tree_ids":",7957387,7957364,7957363,7852477,7819050,","is_mandatory":"0","comment":""},{"id":"7957870","parent_id":"7957364","value":"Games Development","is_child":"0","scale_type":"2","display_order":"4","is_madatory":"0","is_searchable":"0","desc":"","synonyms":"","tree_ids":",7957870,7957364,7957363,7852477,7819050,","is_mandatory":"0","comment":""},{"id":"7958061","parent_id":"7957364","value":"Packaged Software Applications","is_child":"0","scale_type":"2","display_order":"3","is_madatory":"0","is_searchable":"0","desc":"Propreitary business application such as SAP, Salesforce, Oracle and others. Developing applications aroud then, implementing solutions etc.","synonyms":"","tree_ids":",7958061,7957364,7957363,7852477,7819050,","is_mandatory":"0","comment":""},{"id":"7957388","parent_id":"7957364","value":"Framework Development","is_child":"0","scale_type":"2","display_order":"8","is_madatory":"0","is_searchable":"0","desc":"","synonyms":"","tree_ids":",7957388,7957364,7957363,7852477,7819050,","is_mandatory":"0","comment":""},{"id":"6964215","parent_id":"6964213","value":"Outsourced HR Services","is_child":"0","scale_type":"2","display_order":"0","is_madatory":"0","is_searchable":"0","desc":"Including outsourced services for statutory compliance, payroll processing, onboarding, background verification etc.","synonyms":"","tree_ids":",6964215,6964213,6780151,18860,","is_mandatory":"0","comment":""},{"id":"6964214","parent_id":"6964213","value":"Recruitment Consultancy","is_child":"0","scale_type":"2","display_order":"0","is_madatory":"0","is_searchable":"0","desc":"","synonyms":"Executive Search, Professional Services, Staffing","tree_ids":",6964214,6964213,6780151,18860,","is_mandatory":"0","comment":""},{"id":"6964216","parent_id":"6964213","value":"Training Consultancy","is_child":"0","scale_type":"2","display_order":"0","is_madatory":"0","is_searchable":"0","desc":"Training, OD Interventions, Assessments","synonyms":"","tree_ids":",6964216,6964213,6780151,18860,","is_mandatory":"0","comment":""},{"id":"6964217","parent_id":"6964213","value":"In Company HR","is_child":"0","scale_type":"2","display_order":"0","is_madatory":"0","is_searchable":"0","desc":"Part of the HR function within the company","synonyms":"","tree_ids":",6964217,6964213,6780151,18860,","is_mandatory":"0","comment":""},{"id":"6780181","parent_id":"6780162","value":"Information Technology","is_child":"0","scale_type":"2","display_order":"0","is_madatory":"0","is_searchable":"0","desc":"Software Development, Software Service, Information Processing","synonyms":"","tree_ids":",6780181,6780162,6780151,18860,","is_mandatory":"0","comment":""},{"id":"6780180","parent_id":"6780162","value":"Manufacturing","is_child":"0","scale_type":"2","display_order":"0","is_madatory":"0","is_searchable":"0","desc":"","synonyms":"","tree_ids":",6780180,6780162,6780151,18860,","is_mandatory":"0","comment":""},{"id":"6780182","parent_id":"6780162","value":"Service Industry","is_child":"0","scale_type":"2","display_order":"0","is_madatory":"0","is_searchable":"0","desc":"Retail, Hospitality, Domestic Services, Business Services etc.","synonyms":"","tree_ids":",6780182,6780162,6780151,18860,","is_mandatory":"0","comment":""},{"id":"6964030","parent_id":"6963982","value":"Sri Lanka","is_child":"0","scale_type":"2","display_order":"0","is_madatory":"0","is_searchable":"0","desc":null,"synonyms":null,"tree_ids":",6964030,6963982,6780151,18860,","is_mandatory":"0","comment":""},{"id":"6964031","parent_id":"6963982","value":"Liberia","is_child":"0","scale_type":"2","display_order":"0","is_madatory":"0","is_searchable":"0","desc":null,"synonyms":null,"tree_ids":",6964031,6963982,6780151,18860,","is_mandatory":"0","comment":""},{"id":"6964032","parent_id":"6963982","value":"Lebanon","is_child":"0","scale_type":"2","display_order":"0","is_madatory":"0","is_searchable":"0","desc":null,"synonyms":null,"tree_ids":",6964032,6963982,6780151,18860,","is_mandatory":"0","comment":""},{"id":"6964034","parent_id":"6963982","value":"Liechtenstein","is_child":"0","scale_type":"2","display_order":"0","is_madatory":"0","is_searchable":"0","desc":null,"synonyms":null,"tree_ids":",6964034,6963982,6780151,18860,","is_mandatory":"0","comment":""},{"id":"6964036","parent_id":"6963982","value":"Laos","is_child":"0","scale_type":"2","display_order":"0","is_madatory":"0","is_searchable":"0","desc":null,"synonyms":null,"tree_ids":",6964036,6963982,6780151,18860,","is_mandatory":"0","comment":""},{"id":"6963994","parent_id":"6963982","value":"Guinea","is_child":"0","scale_type":"2","display_order":"0","is_madatory":"0","is_searchable":"0","desc":null,"synonyms":null,"tree_ids":",6963994,6963982,6780151,18860,","is_mandatory":"0","comment":""},{"id":"6963996","parent_id":"6963982","value":"French Guiana","is_child":"0","scale_type":"2","display_order":"0","is_madatory":"0","is_searchable":"0","desc":null,"synonyms":null,"tree_ids":",6963996,6963982,6780151,18860,","is_mandatory":"0","comment":""},{"id":"6963999","parent_id":"6963982","value":"Fiji","is_child":"0","scale_type":"2","display_order":"0","is_madatory":"0","is_searchable":"0","desc":null,"synonyms":null,"tree_ids":",6963999,6963982,6780151,18860,","is_mandatory":"0","comment":""},{"id":"6964000","parent_id":"6963982","value":"Dominican Republic","is_child":"0","scale_type":"2","display_order":"0","is_madatory":"0","is_searchable":"0","desc":null,"synonyms":null,"tree_ids":",6964000,6963982,6780151,18860,","is_mandatory":"0","comment":""},{"id":"2849479","parent_id":"2804926","value":"Culture","is_child":"0","scale_type":"1","display_order":"0","is_madatory":"0","is_searchable":"0","desc":null,"synonyms":null,"tree_ids":",2849479,2804926,","is_mandatory":"0","comment":""},{"id":"2849477","parent_id":"2804926","value":"Consumer Protection","is_child":"0","scale_type":"1","display_order":"0","is_madatory":"0","is_searchable":"0","desc":null,"synonyms":null,"tree_ids":",2849477,2804926,","is_mandatory":"0","comment":""},{"id":"2849474","parent_id":"2804926","value":"Education","is_child":"0","scale_type":"1","display_order":"0","is_madatory":"0","is_searchable":"0","desc":null,"synonyms":null,"tree_ids":",2849474,2804926,","is_mandatory":"0","comment":""},{"id":"2849469","parent_id":"2804926","value":"Environment Protection","is_child":"0","scale_type":"1","display_order":"0","is_madatory":"0","is_searchable":"0","desc":null,"synonyms":null,"tree_ids":",2849469,2804926,","is_mandatory":"0","comment":""},{"id":"2849466","parent_id":"2849464","value":"Mentally Retarded","is_child":"0","scale_type":"1","display_order":"0","is_madatory":"0","is_searchable":"0","desc":null,"synonyms":null,"tree_ids":",2849466,2849464,2804926,","is_mandatory":"0","comment":""},{"id":"2849465","parent_id":"2849464","value":"Physically Disabled","is_child":"0","scale_type":"1","display_order":"0","is_madatory":"0","is_searchable":"0","desc":null,"synonyms":null,"tree_ids":",2849465,2849464,2804926,","is_mandatory":"0","comment":""},{"id":"2849481","parent_id":"2804926","value":"Employment","is_child":"0","scale_type":"1","display_order":"0","is_madatory":"0","is_searchable":"0","desc":null,"synonyms":null,"tree_ids":",2849481,2804926,","is_mandatory":"0","comment":""},{"id":"2839065","parent_id":"2839052","value":"Ebook","is_child":"0","scale_type":"1","display_order":"0","is_madatory":"0","is_searchable":"0","desc":null,"synonyms":null,"tree_ids":",2839065,2839052,52692,","is_mandatory":"0","comment":""},{"id":"2839063","parent_id":"2839052","value":"Website content","is_child":"0","scale_type":"1","display_order":"0","is_madatory":"0","is_searchable":"0","desc":null,"synonyms":null,"tree_ids":",2839063,2839052,52692,","is_mandatory":"0","comment":""},{"id":"2839060","parent_id":"2839052","value":"Business Plan","is_child":"0","scale_type":"1","display_order":"0","is_madatory":"0","is_searchable":"0","desc":null,"synonyms":null,"tree_ids":",2839060,2839052,52692,","is_mandatory":"0","comment":""},{"id":"2839055","parent_id":"2839052","value":"Thesis","is_child":"0","scale_type":"1","display_order":"0","is_madatory":"0","is_searchable":"0","desc":null,"synonyms":null,"tree_ids":",2839055,2839052,52692,","is_mandatory":"0","comment":""},{"id":"2857891","parent_id":"2857717","value":"Serbo-Croatian","is_child":"0","scale_type":"1","display_order":"0","is_madatory":"0","is_searchable":"0","desc":null,"synonyms":null,"tree_ids":",2857891,2857717,2839037,52692,","is_mandatory":"0","comment":""},{"id":"2857886","parent_id":"2857717","value":"Punjabi","is_child":"0","scale_type":"1","display_order":"0","is_madatory":"0","is_searchable":"0","desc":null,"synonyms":null,"tree_ids":",2857886,2857717,2839037,52692,","is_mandatory":"0","comment":""},{"id":"2857900","parent_id":"2857717","value":"Tagalog","is_child":"0","scale_type":"1","display_order":"0","is_madatory":"0","is_searchable":"0","desc":null,"synonyms":null,"tree_ids":",2857900,2857717,2839037,52692,","is_mandatory":"0","comment":""},{"id":"2857896","parent_id":"2857717","value":"Spanish","is_child":"0","scale_type":"1","display_order":"0","is_madatory":"0","is_searchable":"0","desc":null,"synonyms":null,"tree_ids":",2857896,2857717,2839037,52692,","is_mandatory":"0","comment":""},{"id":"2857803","parent_id":"2857617","value":"Telugu","is_child":"0","scale_type":"1","display_order":"0","is_madatory":"0","is_searchable":"0","desc":null,"synonyms":null,"tree_ids":",2857803,2857617,2839037,52692,","is_mandatory":"0","comment":""},{"id":"2857799","parent_id":"2857617","value":"Swedish","is_child":"0","scale_type":"1","display_order":"0","is_madatory":"0","is_searchable":"0","desc":null,"synonyms":null,"tree_ids":",2857799,2857617,2839037,52692,","is_mandatory":"0","comment":""},{"id":"2857797","parent_id":"2857617","value":"Spanish","is_child":"0","scale_type":"1","display_order":"0","is_madatory":"0","is_searchable":"0","desc":null,"synonyms":null,"tree_ids":",2857797,2857617,2839037,52692,","is_mandatory":"0","comment":""},{"id":"7819050","parent_id":"0","value":"Information Technology","is_child":"1","scale_type":"1","display_order":"1","is_madatory":"0","is_searchable":"0","desc":null,"synonyms":null,"tree_ids":",7819050,"},{"id":"7852477","parent_id":"7819050","value":"Specialization","is_child":"1","scale_type":"2","display_order":"1","is_madatory":"0","is_searchable":"0","desc":null,"synonyms":null,"tree_ids":",7852477,7819050,"},{"id":"7957363","parent_id":"7852477","value":"Software Development","is_child":"1","scale_type":"2","display_order":"1","is_madatory":"0","is_searchable":"0","desc":"","synonyms":"","tree_ids":",7957363,7852477,7819050,"},{"id":"7957364","parent_id":"7957363","value":"Type of Software (Development of)","is_child":"1","scale_type":"2","display_order":"0","is_madatory":"0","is_searchable":"0","desc":"","synonyms":"","tree_ids":",7957364,7957363,7852477,7819050,"},{"id":"7957386","parent_id":"7957364","value":"Systems Software","is_child":"1","scale_type":"2","display_order":"2","is_madatory":"0","is_searchable":"0","desc":"","synonyms":"","tree_ids":",7957386,7957364,7957363,7852477,7819050,"},{"id":"18860","parent_id":"0","value":"Human Resources ","is_child":"1","scale_type":"1","display_order":"5","is_madatory":"0","is_searchable":"0","desc":"","synonyms":"HR","tree_ids":",18860,"},{"id":"6780151","parent_id":"18860","value":"Domain","is_child":"1","scale_type":"2","display_order":"2","is_madatory":"1","is_searchable":"0","desc":"","synonyms":"","tree_ids":",6780151,18860,"},{"id":"6964213","parent_id":"6780151","value":"Nature of Organization","is_child":"1","scale_type":"2","display_order":"0","is_madatory":"0","is_searchable":"0","desc":"","synonyms":"","tree_ids":",6964213,6780151,18860,"},{"id":"6780162","parent_id":"6780151","value":"Industry","is_child":"1","scale_type":"2","display_order":"0","is_madatory":"0","is_searchable":"0","desc":"","synonyms":"","tree_ids":",6780162,6780151,18860,"},{"id":"6963982","parent_id":"6780151","value":"Country","is_child":"1","scale_type":"2","display_order":"0","is_madatory":"0","is_searchable":"1","desc":"","synonyms":"","tree_ids":",6963982,6780151,18860,"},{"id":"2804926","parent_id":"0","value":"Social Service","is_child":"1","scale_type":"1","display_order":"20","is_madatory":"0","is_searchable":"0","desc":null,"synonyms":null,"tree_ids":",2804926,"},{"id":"2849464","parent_id":"2804926","value":"Differently Abled","is_child":"1","scale_type":"1","display_order":"0","is_madatory":"0","is_searchable":"0","desc":null,"synonyms":null,"tree_ids":",2849464,2804926,"},{"id":"52692","parent_id":"0","value":"Language Related Services","is_child":"1","scale_type":"1","display_order":"25","is_madatory":"0","is_searchable":"0","desc":null,"synonyms":null,"tree_ids":",52692,"},{"id":"2839052","parent_id":"52692","value":"Writing Services","is_child":"1","scale_type":"1","display_order":"0","is_madatory":"0","is_searchable":"0","desc":null,"synonyms":null,"tree_ids":",2839052,52692,"},{"id":"2839037","parent_id":"52692","value":"Translation","is_child":"1","scale_type":"1","display_order":"0","is_madatory":"0","is_searchable":"0","desc":null,"synonyms":null,"tree_ids":",2839037,52692,"},{"id":"2857717","parent_id":"2839037","value":"To (Language)","is_child":"1","scale_type":"2","display_order":"0","is_madatory":"0","is_searchable":"0","desc":null,"synonyms":null,"tree_ids":",2857717,2839037,52692,"},{"id":"2857617","parent_id":"2839037","value":"From (Language)","is_child":"1","scale_type":"1","display_order":"0","is_madatory":"0","is_searchable":"0","desc":null,"synonyms":null,"tree_ids":",2857617,2839037,52692,"}],"behavioural":[{"id":"7898008","parent_id":"7897984","value":"Tasks that are project type","is_child":"0","scale_type":"16","display_order":"0","is_madatory":"0","is_searchable":"0","desc":"Software project, construction project, event management, ad campaign","synonyms":"","tree_ids":",7898008,7897984,","is_mandatory":"1","comment":""},{"id":"7898009","parent_id":"7897984","value":"Tasks that are well defined and set","is_child":"0","scale_type":"16","display_order":"0","is_madatory":"0","is_searchable":"0","desc":"Data entry, Documentation, accounts entry etc.","synonyms":"","tree_ids":",7898009,7897984,","is_mandatory":"1","comment":""},{"id":"7898010","parent_id":"7897984","value":"Tasks that dealing with numbers","is_child":"0","scale_type":"16","display_order":"0","is_madatory":"0","is_searchable":"0","desc":"Accounting, Report preparation, Stock Trader","synonyms":"","tree_ids":",7898010,7897984,","is_mandatory":"1","comment":""},{"id":"7898012","parent_id":"7897984","value":"Tasks that require getting work done from others","is_child":"0","scale_type":"16","display_order":"0","is_madatory":"0","is_searchable":"0","desc":"Team leader, Coordinator, Event Manager","synonyms":"","tree_ids":",7898012,7897984,","is_mandatory":"1","comment":""},{"id":"7898006","parent_id":"7897983","value":"Trustworthiness","is_child":"0","scale_type":"1","display_order":"2","is_madatory":"0","is_searchable":"0","desc":"Honest, Integrity","synonyms":"","tree_ids":",7898006,7897983,","is_mandatory":"0","comment":""},{"id":"7897988","parent_id":"7897983","value":"Ambitious","is_child":"0","scale_type":"1","display_order":"6","is_madatory":"0","is_searchable":"0","desc":"Aggressive","synonyms":"","tree_ids":",7897988,7897983,","rating":5,"is_mandatory":"0","comment":""},{"id":"7897993","parent_id":"7897983","value":"Energetic","is_child":"0","scale_type":"1","display_order":"9","is_madatory":"0","is_searchable":"0","desc":"Passionate, Spirited","synonyms":"","tree_ids":",7897993,7897983,","rating":5,"is_mandatory":"0","comment":""},{"id":"7897990","parent_id":"7897983","value":"Decision making","is_child":"0","scale_type":"1","display_order":"13","is_madatory":"0","is_searchable":"0","desc":"Making Trade offs, Taking ownership, Not procrastinating","synonyms":"","tree_ids":",7897990,7897983,","rating":5,"is_mandatory":"0","comment":""},{"id":"7897970","parent_id":"7897969","value":"Analytical Thinking","is_child":"0","scale_type":"4","display_order":"1","is_madatory":"0","is_searchable":"0","desc":"","synonyms":"","tree_ids":",7897970,7897969,","rating":5,"is_mandatory":"0","comment":""},{"id":"7897974","parent_id":"7897969","value":"Logical Thinking","is_child":"0","scale_type":"4","display_order":"2","is_madatory":"0","is_searchable":"0","desc":"","synonyms":"","tree_ids":",7897974,7897969,","rating":5,"is_mandatory":"0","comment":""},{"id":"7897976","parent_id":"7897969","value":"Numerical Ability","is_child":"0","scale_type":"4","display_order":"3","is_madatory":"0","is_searchable":"0","desc":"","synonyms":"","tree_ids":",7897976,7897969,","rating":5,"is_mandatory":"0","comment":""},{"id":"7897978","parent_id":"7897969","value":"Strategic Thinking","is_child":"0","scale_type":"4","display_order":"4","is_madatory":"0","is_searchable":"0","desc":"","synonyms":"","tree_ids":",7897978,7897969,","rating":5,"is_mandatory":"0","comment":""},{"id":"7897979","parent_id":"7897969","value":"Systems Thinking","is_child":"0","scale_type":"4","display_order":"5","is_madatory":"0","is_searchable":"0","desc":"","synonyms":"","tree_ids":",7897979,7897969,","rating":5,"is_mandatory":"0","comment":""},{"id":"7897973","parent_id":"7897969","value":"Creative Thinking","is_child":"0","scale_type":"4","display_order":"6","is_madatory":"0","is_searchable":"0","desc":"","synonyms":"","tree_ids":",7897973,7897969,","rating":5,"is_mandatory":"0","comment":""},{"id":"7897972","parent_id":"7897969","value":"Conceptualizing","is_child":"0","scale_type":"4","display_order":"7","is_madatory":"0","is_searchable":"0","desc":"","synonyms":"","tree_ids":",7897972,7897969,","rating":5,"is_mandatory":"0","comment":""},{"id":"7897982","parent_id":"7897969","value":"Visualizing","is_child":"0","scale_type":"4","display_order":"8","is_madatory":"0","is_searchable":"0","desc":"","synonyms":"","tree_ids":",7897982,7897969,","rating":5,"is_mandatory":"0","comment":""},{"id":"7897977","parent_id":"7897969","value":"Problem Solving","is_child":"0","scale_type":"4","display_order":"9","is_madatory":"0","is_searchable":"0","desc":"","synonyms":"","tree_ids":",7897977,7897969,","rating":5,"is_mandatory":"0","comment":""},{"id":"7897981","parent_id":"7897969","value":"Troubleshooting","is_child":"0","scale_type":"4","display_order":"10","is_madatory":"0","is_searchable":"0","desc":"","synonyms":"","tree_ids":",7897981,7897969,","rating":5,"is_mandatory":"0","comment":""},{"id":"7897971","parent_id":"7897969","value":"Computer Usage","is_child":"0","scale_type":"4","display_order":"11","is_madatory":"0","is_searchable":"0","desc":"","synonyms":"","tree_ids":",7897971,7897969,","rating":5,"is_mandatory":"0","comment":""},{"id":"7897984","parent_id":"0","value":"Task Orientation","is_child":"1","scale_type":"4","display_order":"3","is_madatory":"0","is_searchable":"0","desc":"The kind of tasks are work that you are more comfortable in performing","synonyms":"","tree_ids":",7897984,"},{"id":"7897983","parent_id":"0","value":"Personality Orientation","is_child":"1","scale_type":"4","display_order":"2","is_madatory":"0","is_searchable":"0","desc":"","synonyms":"","tree_ids":",7897983,"},{"id":"7897969","parent_id":"0","value":"Cognitive Skills","is_child":"1","scale_type":"4","display_order":"1","is_madatory":"0","is_searchable":"0","desc":"","synonyms":"","tree_ids":",7897969,"}],"managerial":[]};
+        $(document).ready(function() {
+         var skillEngineObj =  $("#skillEngine-container").skillEngine({
+
+              source:"https://www.itsyourskills.com/skilljson",
+              data: data
+          });
+          
+          $("#skillEngine-Btn").on('click', function(){
+              
+              $("#outputJson").append(JSON.stringify(skillEngineObj.output())); 
+          });
+        
+        });
+    </script>
+</section>
+        </div>
+        
+        <footer>
+  Skill Engine is licensed under the
+  <a href="https://github.com/itsyourskills/Skill-Engine-Grid/blob/master/LICENSE.md">
+    MIT license.
+  </a>
+  The documentation is licensed under
+  <a href="https://creativecommons.org/licenses/by/3.0/">CC BY 3.0.</a>
+  Maintained by
+  <a href="https://github.com/kaviarasankk">Kaviarasan K K</a>.
+</footer>
+
+
+        <script type="text/javascript">
+            $("[data-fill-from]").each(function () {
+    var $this = $(this);
+
+    var codeContainer = $this.data("fill-from");
+    var $container = $(codeContainer);
+
+    var code = $.trim($container.html());
+
+    $this.text(code);
+    $this.addClass("prettyprint linenums");
+  });
+
+  prettyPrint();
+            </script>
+<!--        <script type="text/javascript">
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-57144786-2', 'auto');
+        ga('send', 'pageview');
+        </script>
+    </body>
+</html>

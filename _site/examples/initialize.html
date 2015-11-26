@@ -11,7 +11,6 @@
 
 <script type="text/javascript" src="../vendor/js/jquery.min.js"></script>
 <script type="text/javascript" src="../dist/js/skillEngine.js"></script>
-<script type="text/javascript" src="../vendor/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="../vendor/js/prettify.min.js"></script>
 
 <link href="../vendor/css/bootstrap.min.css" type="text/css" rel="stylesheet" />
@@ -33,7 +32,7 @@
           .notice-previous a { font-weight: bold; }
         </style>
     </head>
-    <body>
+    <body class="iys-spe">
         <header class="navbar navbar-default navbar-static-top" id="top" role="banner">
   <div class="container">
     <div class="navbar-header">
@@ -65,8 +64,18 @@
           </a>
           <ul class="dropdown-menu">
             <li class="active">
-              <a href="basic.html">
-               Basic
+              <a href="initialize.html">
+               Initialize Skill Engine
+              </a>
+            </li>
+               <li>
+              <a href="input.html">
+               Input for Skill Engine
+              </a>
+            </li>
+            <li>
+              <a href="output.html">
+               Output from Skill Engine
               </a>
             </li>
           </ul>
@@ -90,30 +99,32 @@
         <div class="container">
         <section>
 
-  <h1 id="basics" class="page-header">The basics</h1>
+  <h1 class="page-header">Initialize Skill Engine</h1>
   
-  <pre class="code" data-fill-from=".js-code-basic"></pre>
+    <h2>HTML</h2>
+    <pre class="code prettyprint linenums">&lt;div id=&quot;skillEngine-contain&quot; &gt;&lt;/div&gt;</pre>
+  
+    <h2>Javascript</h2>
+    <pre class="code" data-fill-from=".js-code-basic"></pre>
+    <script type="text/x-example-code" class="js-code-basic">
+    $(document).ready(function() {
+        $("#skillEngine-contain").skillEngine({
+            source:"Skill API's URI", // It is mandatory
+        });
+    });
+    </script>
 
-<script type="text/x-example-code" class="js-code-basic">
-$(document).ready(function() {
-  $("#skillEngine-container").skillEngine({
-      
-      source:"Skill API's URI",
-  });
-});
-</script>
+    <h2>Demo</h2>
+    <div id="skillEngine-container"></div>
 
-<h2>Demo</h2>
-<div id="skillEngine-container"></div>
+    <script type="text/javascript" >
+    $(document).ready(function() {
+      $("#skillEngine-container").skillEngine({
 
-<script type="text/javascript" >
-$(document).ready(function() {
-  $("#skillEngine-container").skillEngine({
-      
-      source:"https://www.itsyourskills.com/skilljson",
-  });
-});
-</script>
+          source:"https://www.itsyourskills.com/skilljson",
+      });
+    });
+    </script>
 </section>
         </div>
         
