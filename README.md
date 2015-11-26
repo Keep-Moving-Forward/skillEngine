@@ -16,9 +16,7 @@ Browser compatibility
 
 Documentation
 -------------
-The documentation for Skill Engine (Grid) is available
-through GitHub Pages [documentation] and is located within this repository
-in the [`docs` folder][documentation-folder].
+The documentation for Skill Engine (Grid) is available through GitHub Pages [documentation].
 
 Copyright and license
 ---------------------
