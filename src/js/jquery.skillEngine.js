@@ -20,10 +20,10 @@ SPE.prototype.defaults = {
     data: {},
     source: '',
     template: '',
-    type: ["functionals", "behavioural", "managerial"],
+    type: ["functionals", "behavioural"],
     functionals: {
         name: 'functionals',
-        title: '<i class="fa fa-magic"></i> Functional Skills',
+        title: '<i class="fa fa-minus-square"></i> Functional Skills',
         id: "panelFunSkill",
         selector: "section#sectionFunSkill",
         colorClass: "info",
@@ -37,7 +37,7 @@ SPE.prototype.defaults = {
     },
     behavioural: {
         name: 'behavioural',
-        title: '<i class="fa fa-tags"></i> Behavioural Skills',
+        title: '<i class="fa fa-plus-square"></i> Behavioural Skills',
         id: "panelBehSkill",
         selector: "section#sectionBehSkill",
         colorClass: "primary",

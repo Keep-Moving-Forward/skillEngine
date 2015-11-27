@@ -95,9 +95,14 @@ SPEmacro.prototype.html = {
             /* Panel Head */
             if (!properties.isSearch) {
 
-                html += '<div class="panel-heading" role="tab" class="func-title" data-toggle="collapse" data-parent="#accordionPick" data-target="#pick-collapse-' + properties.name + '" aria-expanded="true" aria-controls="pick-collapse-' + properties.name + '">';
-                html += '<h4 class="panel-title col-md-3">';
+//                html += '<div class="panel-heading" role="tab" class="func-title" data-toggle="collapse" data-parent="#accordionPick" data-target="#pick-collapse-' + properties.name + '" aria-expanded="true" aria-controls="pick-collapse-' + properties.name + '">';
+//                html += '<h4 class="panel-title col-md-3">';
+
+                html += '<div class="panel-heading" role="tab" >';
+                html += '<h4 class="panel-title pull-left">';
+                html += '<a role="button" class="func-title" data-toggle="collapse" data-parent="#accordionPick" data-target="#pick-collapse-' + properties.name + '" aria-expanded="true" aria-controls="pick-collapse-' + properties.name + '">';
                 html += properties.title;
+                html += '</a>';
                 html += '</h4>';
 
             }
@@ -1008,9 +1013,27 @@ SPEmacro.prototype.event = function (self) {
 
             }
         }, 'a.spe-addUserSkill');
+        
+        elementObj.on({
+            
+            "hide.bs.collapse":function(e){
+                
+                console.log(e);
+                
+                $(e.target).prev('.panel-heading')
+                    .find("i.fa")
+                    .toggleClass('fa-plus-square fa-minus-square');
+            },
+            "show.bs.collapse":function(e){
+                
+                 $(e.target).prev('.panel-heading')
+                    .find("i.fa")
+                    .toggleClass('fa-plus-square fa-minus-square');
+            }
+        }, '#accordionPick, #skillEdit');
 
         elementObj.on({
-            mouseenter: function () {
+            mouseenter: function () {   
 
                 var $this = $(this),
                         _curLevel = $this.data('level'),
