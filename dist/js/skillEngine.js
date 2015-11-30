@@ -14359,10 +14359,10 @@ SPE.prototype.defaults = {
     data: {},
     source: '',
     template: '',
-    type: ["functionals", "behavioural", "managerial"],
+    type: ["functionals", "behavioural"],
     functionals: {
         name: 'functionals',
-        title: '<i class="fa fa-magic"></i> Functional Skills',
+        title: '<i class="fa fa-minus-square"></i> Functional Skills',
         id: "panelFunSkill",
         selector: "section#sectionFunSkill",
         colorClass: "info",
@@ -14376,7 +14376,7 @@ SPE.prototype.defaults = {
     },
     behavioural: {
         name: 'behavioural',
-        title: '<i class="fa fa-tags"></i> Behavioural Skills',
+        title: '<i class="fa fa-plus-square"></i> Behavioural Skills',
         id: "panelBehSkill",
         selector: "section#sectionBehSkill",
         colorClass: "primary",
@@ -14851,9 +14851,14 @@ SPEmacro.prototype.html = {
             /* Panel Head */
             if (!properties.isSearch) {
 
-                html += '<div class="panel-heading" role="tab" class="func-title" data-toggle="collapse" data-parent="#accordionPick" data-target="#pick-collapse-' + properties.name + '" aria-expanded="true" aria-controls="pick-collapse-' + properties.name + '">';
-                html += '<h4 class="panel-title col-md-3">';
+//                html += '<div class="panel-heading" role="tab" class="func-title" data-toggle="collapse" data-parent="#accordionPick" data-target="#pick-collapse-' + properties.name + '" aria-expanded="true" aria-controls="pick-collapse-' + properties.name + '">';
+//                html += '<h4 class="panel-title col-md-3">';
+
+                html += '<div class="panel-heading" role="tab" >';
+                html += '<h4 class="panel-title pull-left">';
+                html += '<a role="button" class="func-title" data-toggle="collapse" data-parent="#accordionPick" data-target="#pick-collapse-' + properties.name + '" aria-expanded="true" aria-controls="pick-collapse-' + properties.name + '">';
                 html += properties.title;
+                html += '</a>';
                 html += '</h4>';
 
             }
@@ -15243,7 +15248,8 @@ SPEmacro.prototype.manipulate = {
             $('#' + self.defaults[type].id + ' div.level[data-type="' + type + '"][data-level="' + level + '"] div.levelList .mCSB_container').append(skillItemGroupHtml);
         }
 
-        var skillItemHtml = '';
+        var skills = storageWrap.getItem('skills'),
+                skillItemHtml = '';
 
         if (typeof data.length != "undefined") {
 
@@ -15265,6 +15271,12 @@ SPEmacro.prototype.manipulate = {
 
                     storageWrap.setItem(data[i].id, data[i]);
                     skillItemHtml += '<a class="skillItem list-group-item" data-level="' + level + '" data-type="' + type + '" data-id="' + data[i].id + '" data-parent_id="' + data[i].parent_id + '" data-value="' + data[i].value + '" data-is_child="' + data[i].is_child + '" data-scale_type="' + data[i].scale_type + '"  data-display_order="' + data[i].display_order + '" data-desc="' + data[i].desc + '"  data-tree_ids="' + data[i].tree_ids + '" href="javascript:void(0);">';
+                                        
+                    if($.inArray(parseInt(data[i].id), skills[type]) > -1){
+                        
+                        skillItemHtml += '<i class="fa fa-check"></i> ';
+                    }
+                    
                     skillItemHtml += self.icons.skill[data[i].is_child];
                     skillItemHtml += data[i].value;
 
@@ -15764,9 +15776,27 @@ SPEmacro.prototype.event = function (self) {
 
             }
         }, 'a.spe-addUserSkill');
+        
+        elementObj.on({
+            
+            "hide.bs.collapse":function(e){
+                
+                void 0;
+                
+                $(e.target).prev('.panel-heading')
+                    .find("i.fa")
+                    .toggleClass('fa-plus-square fa-minus-square');
+            },
+            "show.bs.collapse":function(e){
+                
+                 $(e.target).prev('.panel-heading')
+                    .find("i.fa")
+                    .toggleClass('fa-plus-square fa-minus-square');
+            }
+        }, '#accordionPick, #skillEdit');
 
         elementObj.on({
-            mouseenter: function () {
+            mouseenter: function () {   
 
                 var $this = $(this),
                         _curLevel = $this.data('level'),
