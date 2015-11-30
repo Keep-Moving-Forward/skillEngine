@@ -492,7 +492,8 @@ SPEmacro.prototype.manipulate = {
             $('#' + self.defaults[type].id + ' div.level[data-type="' + type + '"][data-level="' + level + '"] div.levelList .mCSB_container').append(skillItemGroupHtml);
         }
 
-        var skillItemHtml = '';
+        var skills = storageWrap.getItem('skills'),
+                skillItemHtml = '';
 
         if (typeof data.length != "undefined") {
 
@@ -514,6 +515,12 @@ SPEmacro.prototype.manipulate = {
 
                     storageWrap.setItem(data[i].id, data[i]);
                     skillItemHtml += '<a class="skillItem list-group-item" data-level="' + level + '" data-type="' + type + '" data-id="' + data[i].id + '" data-parent_id="' + data[i].parent_id + '" data-value="' + data[i].value + '" data-is_child="' + data[i].is_child + '" data-scale_type="' + data[i].scale_type + '"  data-display_order="' + data[i].display_order + '" data-desc="' + data[i].desc + '"  data-tree_ids="' + data[i].tree_ids + '" href="javascript:void(0);">';
+                                        
+                    if($.inArray(parseInt(data[i].id), skills[type]) > -1){
+                        
+                        skillItemHtml += '<i class="fa fa-check"></i> ';
+                    }
+                    
                     skillItemHtml += self.icons.skill[data[i].is_child];
                     skillItemHtml += data[i].value;
 
