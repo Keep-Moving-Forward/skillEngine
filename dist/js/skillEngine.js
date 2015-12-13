@@ -15578,13 +15578,25 @@ SPEmacro.prototype.event = function (self) {
 
                     self.skillSetter(_this.data('type'), _this.data('id'));
                 }
+                
+                if(parseInt(_this.data('is_child'),10) == 4){
+                    
+                    var _conThis = $(this).closest('li.parent_li').find('a.skillDelete').slice(1);
+                    
+                    for(var i = 0; i < _conThis.length; i++){
+                        
+                        var conElement = $('div[data-parent_id="' + parseInt(_conThis[i].dataset.parent_id) + '"] > a[data-id="' + parseInt(_conThis[i].dataset.id) + '"]');
 
-//                    if(parseInt(_this.data('is_child'),10) == 4){
-//
-//                        $(this).remove();
-//
-//                        alert('s');
-//                    }
+                        if (conElement.length) {
+
+                            conElement.trigger('click');
+                        } else {
+
+                            self.skillSetter(_conThis[i].dataset.type, parseInt(_conThis[i].dataset.id));
+                        }
+                    }
+                        
+                }
 
                 $('a#skillPreviewBtn').trigger('click');
             }
@@ -15727,7 +15739,7 @@ SPEmacro.prototype.event = function (self) {
         }, 'a.skill-item-view');
         
         
-         /* Locating from view */
+         /* User added skills catpcha */
         $(document).on({
             click: function () {
                 
@@ -15797,9 +15809,7 @@ SPEmacro.prototype.event = function (self) {
         elementObj.on({
             
             "hide.bs.collapse":function(e){
-                
-                void 0;
-                
+                                
                 $(e.target).prev('.panel-heading')
                     .find("i.fa")
                     .toggleClass('fa-plus-square fa-minus-square');
