@@ -13700,6 +13700,14 @@ $.fn.serializeObject = function ()
     return o;
 };
 
+String.prototype.trunc =
+     function( n, useWordBoundary ){
+         var isTooLong = this.length > n,
+             s_ = isTooLong ? this.substr(0,n-1) : this;
+         s_ = (useWordBoundary && isTooLong) ? s_.substr(0,s_.lastIndexOf(' ')) : s_;
+         return  isTooLong ? s_ + '&hellip;' : s_;
+      };
+
 //
 // console.log(storageWrap);
 //
@@ -14367,7 +14375,7 @@ SPE.prototype.defaults = {
         selector: "section#sectionFunSkill",
         colorClass: "info",
         level: [
-            'ajith', 'alagu', 'elas', 'raja', 'ravi', 'yuva', 'kavi', 'ramu'
+            'ramu','ajith', 'yuva', 'raja', 'obuli'
         ],
         isSearch: true,
         isLegend: false,
@@ -14403,8 +14411,7 @@ SPE.prototype.defaults = {
 };
 /******************************************************************************/
 SPE.prototype.level = [
-    'ajith', 'alagu', 'elas', 'raja', 'ravi', 'yuva', 'kavi',
-    'ramu'
+    'ramu','ajith', 'yuva', 'raja', 'obuli'
 ];
 /******************************************************************************/
 SPE.prototype.icons = {
@@ -15239,6 +15246,8 @@ SPEmacro.prototype.manipulate = {
         self.$element.append(html);
     },
     skill: function (self, data, id, type, level) {
+        
+        var trunc = 35;
 
         var skillItemGroup = $('div.list-group[data-type="' + type + '"][data-parent_id="' + id + '"]');
 
@@ -15270,7 +15279,7 @@ SPEmacro.prototype.manipulate = {
                     data[i].type = type;
 
                     storageWrap.setItem(data[i].id, data[i]);
-                    skillItemHtml += '<a class="skillItem list-group-item" data-level="' + level + '" data-type="' + type + '" data-id="' + data[i].id + '" data-parent_id="' + data[i].parent_id + '" data-value="' + data[i].value + '" data-is_child="' + data[i].is_child + '" data-scale_type="' + data[i].scale_type + '"  data-display_order="' + data[i].display_order + '" data-desc="' + data[i].desc + '"  data-tree_ids="' + data[i].tree_ids + '" href="javascript:void(0);">';
+                    skillItemHtml += '<a class="skillItem list-group-item" title="'+data[i].value+'" data-level="' + level + '" data-type="' + type + '" data-id="' + data[i].id + '" data-parent_id="' + data[i].parent_id + '" data-value="' + data[i].value + '" data-is_child="' + data[i].is_child + '" data-scale_type="' + data[i].scale_type + '"  data-display_order="' + data[i].display_order + '" data-desc="' + data[i].desc + '"  data-tree_ids="' + data[i].tree_ids + '" href="javascript:void(0);">';
                                         
                     if($.inArray(parseInt(data[i].id), skills[type]) > -1){
                         
@@ -15278,7 +15287,7 @@ SPEmacro.prototype.manipulate = {
                     }
                     
                     skillItemHtml += self.icons.skill[data[i].is_child];
-                    skillItemHtml += data[i].value;
+                    skillItemHtml += data[i].value.trunc(trunc, true);
 
                     if (typeof data[i].desc == 'string' && data[i].desc !== "") {
 
@@ -15287,6 +15296,7 @@ SPEmacro.prototype.manipulate = {
 
                     skillItemHtml += '</a>';
                 }
+                
             }
         } else if (data.length == 0) {
 
@@ -15309,9 +15319,9 @@ SPEmacro.prototype.manipulate = {
                 data.type = type;
 
                 storageWrap.setItem(data.id, data);
-                skillItemHtml += '<a class="skillItem list-group-item" data-level="' + level + '" data-type="' + type + '" data-id="' + data.id + '" data-parent_id="' + data.parent_id + '" data-value="' + data.value + '" data-is_child="' + data.is_child + '" data-scale_type="' + data.scale_type + '"  data-display_order="' + data.display_order + '" data-desc="' + data.desc + '" data-tree_ids="' + data.tree_ids + '"  href="javascript:void(0);">';
+                skillItemHtml += '<a class="skillItem list-group-item" title="'+data.value+'" data-level="' + level + '" data-type="' + type + '" data-id="' + data.id + '" data-parent_id="' + data.parent_id + '" data-value="' + data.value + '" data-is_child="' + data.is_child + '" data-scale_type="' + data.scale_type + '"  data-display_order="' + data.display_order + '" data-desc="' + data.desc + '" data-tree_ids="' + data.tree_ids + '"  href="javascript:void(0);">';
                 skillItemHtml += self.icons.skill[data.is_child];
-                skillItemHtml += data.value;
+                skillItemHtml += data.value.trunc(trunc, true);
 
                 if (typeof data.desc == 'string' && data.desc !== "") {
 
@@ -15382,11 +15392,11 @@ SPEmacro.prototype.event = function (self) {
 
                 var _this = $(this),
                         _data = event.target.dataset,
-                        _level = parseInt(_data.level),
+                        _level = parseInt(_data.level);
                         _levelNext = parseInt(_data.level) + 1,
                         _levelDiv = $('div#' + self.defaults[_data.type].level[_levelNext]),
                         _itemGroup = _levelDiv.find('div[data-parent_id=\'' + _data.id + '\']:first');
-
+                
                 /* Handling .active */
                 _this.siblings('a.list-group-item').removeClass('active');
                 $('a.list-group-item:hidden').removeClass('active');

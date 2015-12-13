@@ -28,7 +28,7 @@ SPE.prototype.defaults = {
         selector: "section#sectionFunSkill",
         colorClass: "info",
         level: [
-            'ajith', 'alagu', 'elas', 'raja', 'ravi', 'yuva', 'kavi', 'ramu'
+            'ramu','ajith', 'yuva', 'raja', 'obuli'
         ],
         isSearch: true,
         isLegend: false,
@@ -64,8 +64,7 @@ SPE.prototype.defaults = {
 };
 /******************************************************************************/
 SPE.prototype.level = [
-    'ajith', 'alagu', 'elas', 'raja', 'ravi', 'yuva', 'kavi',
-    'ramu'
+    'ramu','ajith', 'yuva', 'raja', 'obuli'
 ];
 /******************************************************************************/
 SPE.prototype.icons = {
