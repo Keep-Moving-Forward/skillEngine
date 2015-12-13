@@ -485,7 +485,7 @@ SPEmacro.prototype.manipulate = {
     skill: function (self, data, id, type, level) {
         
         var trunc = 35;
-
+        
         var skillItemGroup = $('div.list-group[data-type="' + type + '"][data-parent_id="' + id + '"]');
 
         if (skillItemGroup.length == 0) {
@@ -946,11 +946,18 @@ SPEmacro.prototype.event = function (self) {
 
                 $('a#spe-skillPickBtn').trigger('click');
 
-                //                $('#' + self.defaults[$li[0].dataset.type].id).collapse('show');
+//                $('#' + self.defaults[$li[0].dataset.type].id).collapse('show');                
 
-                for (i = $li.length - 1, maxi = 0; i >= maxi; i--) {
+                for (var i = $li.length - 1, maxi = 0; i >= maxi; i--) {
+                    
+                    var skillLocate = storageWrap.getItem($li[i].dataset.id);
 
-                    $('a.skillItem[data-id="' + $li[i].dataset.id + '"][data-is_child="1"]').trigger('click');
+                    $('a.skillItem[data-id="' + $li[i].dataset.id + '"]').trigger('click');
+                                        
+                    if(skillLocate.is_child != 1){
+                        
+                        $('a.skillItem[data-id="' + $li[i].dataset.id + '"]').trigger('click');
+                    }
                 }
 
             }
